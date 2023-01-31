@@ -1,25 +1,20 @@
+import React, { Component } from 'react';
 import './App.css';
+import Banner from './Banner';
+import Exhibit from './Exhibit';
 
-function App() {
-  return (
-    <FancyBorder color="blue">
-    <h1 className="Dialog-title">
-      Welcome
-    </h1>
-    <p className="Dialog-message">
-      Thank you for visiting our spacecraft!
-    </p>
-  </FancyBorder>
-  );
+class App extends Component {
+    render() {
+        return (
+            <div className="App">
+                <Banner bannerText="Sextant" />
+                <Exhibit name="I'm an exhibit!"></Exhibit>
+                <Exhibit name="I'm also an exhibit!"></Exhibit>
+                <Exhibit name="Don't forget about me, I'm an exhibit too!"></Exhibit>
+            </div>
+        );
+    }
 }
-
-function FancyBorder(props) {
-  return (
-    <div className={'FancyBorder FancyBorder-' + props.color}>
-      {props.children}
-    </div>
-  );
-}
-
 
 export default App;
+
