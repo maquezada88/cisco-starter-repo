@@ -29,4 +29,4 @@ class WebSocket extends Component {
     }
 }
 
-  export default Latency;
+  export default WebSocket;
