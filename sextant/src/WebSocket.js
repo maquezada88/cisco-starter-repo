@@ -2,27 +2,31 @@ import React, { Component } from 'react';
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
 const client = new W3CWebSocket("ws://localhost:55455");
+class WebSocket extends Component {
 
-client.onerror = function() {
-    console.log('Connection Error');
-};
 
-function Latency() {
-    const [lat, setLat] = useState(0);
-    useEffect(() => {
-      client.onopen = () => {
-        console.log("WebSocket Client Connected");
-      };
-      client.onmessage = (message) => {
-          // console.log(message);
-        const sent = message.data;
-        client.close();
-        const recv = new Date().getTime();
-        console.log(sent , recv);
-        setLat(recv - sent);
-      };
-    }, []);
-    return <div>{lat} ms</div>;
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            latency: null
+        };
+    }
+
+    componentDidMount() {
+        client.onmessage = (message) => {
+            this.setState({
+                latency: new Date().getTime() - message.data
+            })
+        };
+    }
+
+    render() {
+        return (
+            <span className="WebSocket">
+                {this.state.latency}
+            </span>
+        );
+    }
+}
 
   export default Latency;

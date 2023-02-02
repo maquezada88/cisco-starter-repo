@@ -17,7 +17,7 @@ class App extends Component {
                     <AddressDisplay url='https://api64.ipify.org?format=json' />
                 </Exhibit>
 
-                <Exhibit name="Latency : ">
+                <Exhibit name="Latency">
                  <Latency />
                 </Exhibit>
             </div>
