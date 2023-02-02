@@ -18,7 +18,7 @@ class App extends Component {
                 </Exhibit>
 
                 <Exhibit name="Latency">
-                 <Latency />
+                 <WebSocket />
                 </Exhibit>
             </div>
         );
