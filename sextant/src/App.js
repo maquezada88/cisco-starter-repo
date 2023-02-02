@@ -3,6 +3,7 @@ import './App.css';
 import Banner from './Banner';
 import Exhibit from './Exhibit';
 import AddressDisplay from './AddressDisplay';
+import WebSocket from './WebSocket';
 
 class App extends Component {
     render() {
@@ -14,6 +15,10 @@ class App extends Component {
                 </Exhibit>
                 <Exhibit name="Public IPv6 Address">
                     <AddressDisplay url='https://api64.ipify.org?format=json' />
+                </Exhibit>
+
+                <Exhibit name="Latency : ">
+                 <Latency />
                 </Exhibit>
             </div>
         );
